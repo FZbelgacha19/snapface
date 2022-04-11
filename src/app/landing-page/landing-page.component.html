@@ -1,4 +1,13 @@
-<div class="landing-block">
+<div class="landing-block mt-5">
+  <!-- Form : inscription pour recevoir les newsliter -->
+  <form class="form-inline" #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
+    <div class="form-check-inline">
+      <label for="userEmail">Email</label>
+      <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Tapez votre email"
+      [(ngModel)]="userEmail">
+    </div>
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
+  </form>
     <img src="assets/snapface.png" alt="Snapface logo">
     <div class="landing-links">
         <button (click)="onContinue()">Continuer vers Snapface</button>
