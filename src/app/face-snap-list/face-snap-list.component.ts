@@ -1,6 +1,7 @@
-import { FaceSnapService } from './../services/face-snaps.service';
-import { FaceSnap } from './../models/face-snap.model';
+import { FaceSnapService } from '../services/face-snaps.service';
+import { FaceSnap } from '../models/face-snap.model';
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-face-snap-list',
@@ -10,10 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class FaceSnapListComponent implements OnInit {
 
   faceSnaps! : FaceSnap[];
+  faceSnapsObs$! : Observable<FaceSnap[]>;
 
   constructor(private faceSnapService : FaceSnapService) { }
 
   ngOnInit(): void {
-    this.faceSnaps = this.faceSnapService.getAllFaceSnaps();
+    // this.faceSnaps = this.faceSnapService.getAllFaceSnaps();
+    this.faceSnapsObs$ = this.faceSnapService.getAllFaceSnaps();
   }
 }
